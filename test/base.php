@@ -21,7 +21,7 @@ use tools\Http;
 ];
 
 #传入请求头参数
-$options = ['headers' => ['version:1.0' , 'token:bf76e9xxxxxxb370758ad16']];
+$options = ['headers' => ['version:1.0' , 'token:bf76e9c8152e790f06bf9b370758ad16']];
 var_dump(Http::post('http://xxxxx/xxxx',$data,$options));*/
 
 
@@ -34,7 +34,7 @@ $data = json_encode([
 ]);
 
 #传入请求头参数,并设置请求头类型
-$options = ['headers' => ['version:1.0' , 'token:bf76e9xxxxxxb370758ad16' ,'Content-Type: application/json']];
+$options = ['headers' => ['version:1.0' , 'token:bf76e9c8152e790f06bf9b370758ad16' ,'Content-Type: application/json']];
 
-var_dump(Http::post('http://xxxx/face',$data,$options));
+var_dump(Http::post('http://open.skinrun.me/face',$data,$options));
 

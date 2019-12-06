@@ -39,6 +39,12 @@ class Http
      * @param string $method 请求方法
      * @param string $url 请求方法
      * @param array $options 请求参数[headers,data]
+     * @param $options[query] get请求参数
+     * @param $options[headers] 设置请求头
+     * @param $options[cookie] 设置cookie
+     * @param $options[cookie_file] 设置cookie_file
+     * @param $options[timeout] 设置超时时间
+     * @param $options[cert] 设置证书（支付配置）
      * @return boolean|string
      */
     public static function request($method, $url, $options = [])
@@ -80,6 +86,16 @@ class Http
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
+        //带证书的post请求
+        if(isset($options['cert']) && !empty($options['cert'])){
+            //证书类型
+            curl_setopt($curl,CURLOPT_SSLCERTTYPE,'PEM');
+            //证书配置说明https://pay.weixin.qq.com/wiki/doc/api/tools/mch_pay.php?chapter=4_3
+            //从apiclient_cert.p12中导出证书部分的文件，为pem格式，请妥善保管不要泄漏和被他人复制
+            curl_setopt($curl,CURLOPT_SSLCERT, $options['cert']['apiclient_cert']); //证书pem格式
+            curl_setopt($curl,CURLOPT_SSLKEYTYPE,'PEM');
+            curl_setopt($curl,CURLOPT_SSLKEY, $options['cert']['apiclient_key']); //证书密钥pem格式
+        }
         $content = curl_exec($curl);
         curl_close($curl);
         return $content;
