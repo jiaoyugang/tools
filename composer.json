@@ -9,11 +9,7 @@
     "ext-gd": "*",
     "ext-json": "*",
     "ext-curl": "*",
-    "ext-iconv": "*",
-    "ext-openssl": "*"
-  },
-  "require-dev": {
-      "endroid/qr-code":"3.7.3"
+    "ext-iconv": "*"
   },
   "autoload": {
       "psr-4": {
