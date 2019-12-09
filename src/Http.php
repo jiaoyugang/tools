@@ -4,7 +4,7 @@ namespace tools;
 /**
  * CURL数据请求管理器
  * Class Http
- * @package library\tools
+ * @package tools
  */
 class Http
 {
