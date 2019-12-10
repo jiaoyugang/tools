@@ -8,6 +8,19 @@ namespace tools;
  */
 class Http
 {
+
+    public function __construct()
+    {
+
+    }
+
+
+    public function __destruct()
+    {
+
+    }
+
+
     /**
      * 以get模拟网络请求
      * @param string $url HTTP请求URL地址

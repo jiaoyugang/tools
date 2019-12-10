@@ -8,8 +8,7 @@
     "php": ">=5.4",
     "ext-gd": "*",
     "ext-json": "*",
-    "ext-curl": "*",
-    "ext-iconv": "*"
+    "ext-curl": "*"
   },
   "autoload": {
       "psr-4": {

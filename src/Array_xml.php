@@ -1,24 +1,34 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: gang
- * Date: 2019/12/6
- * Time: 17:06
+ * @params   array    data   数组
+ * @return   string   xml    xml数据
+ * @function static arrayToXml
  */
 
 namespace tools;
 
 class Array_xml {
 
+    public function __construct()
+    {
+
+    }
+
+
+    public function __destruct()
+    {
+
+    }
+
     /**
      * 数组转为xml
-     * @param $array
+     * @param $data
      * @return string
      */
-    public static function  arrayToXml($array){
-         if(!empty($array) && is_array($array)){
+    public static function  arrayToXml($data){
+         if(!empty($data) && is_array($data)){
              $xml = "<xml>";
-             foreach ($array as $key=>$val)
+             foreach ($data as $key=>$val)
              {
                  if (is_numeric($val)){
                      $xml.="<".$key.">".$val."</".$key.">";
