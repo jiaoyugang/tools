@@ -41,7 +41,7 @@ class Image_Base64 {
             }else{
                 throw new Exception('获取图片数据异常');
             }
-        }catch (\DivisionByZeroError  $exc){
+        }catch (\Exception  $exc){
             return ['code' => 400, 'msg' => $exc->getMessage()];
         }
 

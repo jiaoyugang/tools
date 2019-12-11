@@ -8,13 +8,24 @@
 
 require_once dirname(__DIR__).'/vendor/autoload.php';
 
-$config = [
-    'host' => 'smtp.exmail.qq.com',
-    'sendUser' => '1355528968@qq.com',
-    'sendPassword' => '201307104120@adg',
-    'form' => ['1355528968@qq.com' => 'gang'],
-    'msg' => 'hello world'
-];
-$email = new \tools\Email($config);
+/**
+ *  邮箱配置pop  smtp（对应host参数）
+ *  smtp.qq.com
+ *  smtp.163.com
+ *  smtp.gmail.com
+ *  smtp.exmail.qq.com 腾讯企业邮箱
+ * */
 
-$email::sendMsg('hello',['1355528968@qq.com' => 'gang'],['18838952961@163.com' => '测试'],'测试');
+$config = [
+    'host' => 'smtp.qq.com',
+    'port' => '25',
+    'sendUse' => '1355528968@qq.com',
+    'sendPwd' => '201307104120@adg',
+    'fromUser' => ['1355528968@qq.com' => '测试'],
+    'toUser' => ['18838952961@163.com'],
+    'subject' => '主题：测试报告',
+    'msgBody' => 'hello world'
+];
+$email = new \tools\Email();
+
+var_dump($email::sendMsg($config));
