@@ -6,7 +6,7 @@
     "http",
     "xml",
     "php",
-    "post|get",
+    "curl",
     "red",
     "crypt"
   ],
