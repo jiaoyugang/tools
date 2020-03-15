@@ -41,6 +41,7 @@ var_dump(Http::post('http://open.skinrun.me/face',$data,$options));*/
 
 //---------------------------------------------------image图片转换----------------------------------
 
-$base64 = Image_Base64::ImageToBase64('http://three-api.oss-cn-beijing.aliyuncs.com/skin_test/2019-08-17/15659756543255.png');
+// $base64 = Image_Base64::ImageToBase64('http://three-api.oss-cn-beijing.aliyuncs.com/skin_test/2019-08-17/15659756543255.png');
 
-Image_Base64::Base64ToImage('./test.png',base64_decode($base64,true));
+// Image_Base64::Base64ToImage('./test.png',base64_decode($base64,true));
+

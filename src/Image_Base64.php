@@ -39,7 +39,7 @@ class Image_Base64 {
             if(preg_match($preg,$img_url)){
                 return base64_encode( file_get_contents($img_url) );
             }else{
-                throw new Exception('获取图片数据异常');
+                throw new \Exception('获取图片数据异常');
             }
         }catch (\Exception  $exc){
             return ['code' => 400, 'msg' => $exc->getMessage()];
@@ -65,7 +65,7 @@ class Image_Base64 {
             if(is_numeric($res)){
                 return $img_base64;
             }else{
-                throw new Exception('数据写入失败');
+                throw new \Exception('数据写入失败');
             }
         }catch (\Exception $exc){
             return ['code' => 400, 'msg' => $exc->getMessage()];

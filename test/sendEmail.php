@@ -6,7 +6,7 @@
  * Time: 17:11
  */
 
-require_once dirname(__DIR__).'/vendor/autoload.php';
+require dirname(__DIR__).'/vendor/autoload.php';
 
 /**
  *  邮箱配置pop  smtp（对应host参数）
