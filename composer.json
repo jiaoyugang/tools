@@ -2,14 +2,26 @@
   "type": "library",
   "name": "kongflower/tools",
   "license": "MIT",
-  "homepage": "http://framework.thinkadmin.top",
+  "keywords": [
+    "http",
+    "xml",
+    "php",
+    "post|get",
+    "red",
+    "crypt"
+  ],
+  "authors": [
+    {
+        "name": "kongflower",
+        "email": "1355528968@qq.com"
+    }
+  ],
   "description": "通用的工具库",
   "require": {
     "php": ">=5.4",
     "ext-gd": "*",
     "ext-json": "*",
-    "ext-curl": "*",
-    "swiftmailer/swiftmailer": "^6.0"
+    "ext-curl": "*"
   },
   "autoload": {
       "psr-4": {
