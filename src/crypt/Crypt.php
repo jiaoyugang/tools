@@ -2,7 +2,7 @@
 /**
  * 字符串对称加密类
  */
-namespace tools;
+namespace tools\crypt;
 
 final class Crypt{
 
@@ -85,6 +85,7 @@ final class Crypt{
             $box[$j] = $tmp;
             $result .= chr(ord($string[$i]) ^ ($box[($box[$a] + $box[$j]) % 256]));
         }
+        
         if ($operation == 'DECODE') {
             if (substr($result, 0, 8) == substr(md5(substr($result, 8) . $key), 0, 8)) {
                 return substr($result, 8);
