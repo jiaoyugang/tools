@@ -1,7 +1,7 @@
 <?php
 require_once dirname(__DIR__).'/vendor/autoload.php';
 
-use tools\Red;
+use tools\helper\Red;
 
 
 $red = Red::getInstance();

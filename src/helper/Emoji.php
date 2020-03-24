@@ -1,13 +1,40 @@
 <?php
-namespace tools;
+namespace tools\helper;
 
 /**
  * 处理 Emoji 表情
  * Class Emoji
  * @package tools
  */
-class Emoji
+final class Emoji
 {
+
+    private static $instance;
+
+    /**
+     * 禁止实例化
+     */
+    private function __construct()
+    {}
+
+    /**
+     * 私有属性的克隆方法 防止被克隆
+     */
+    private function __clone()
+    {}
+
+    /**
+     * 静态方法 用以实例化调用
+     */
+    public static function getInstance()
+    {
+
+        if (!self::$instance instanceof self) {
+            self::$instance = new self();
+        }
+        return self::$instance;
+    }
+
     /**
      * Emoji原形转换为String
      * @param string $content

@@ -13,20 +13,22 @@ final class Http
     /**
      * 禁止实例化
      */
-    private function __construct(){}
+    private function __construct()
+    {}
 
     /**
      * 私有属性的克隆方法 防止被克隆
      */
-    private function __clone (){}
-
+    private function __clone()
+    {}
 
     /**
      * 静态方法 用以实例化调用
      */
-    public static function getInstance(){
-        
-        if(!self::$instance instanceof self){
+    public static function getInstance()
+    {
+
+        if (!self::$instance instanceof self) {
             self::$instance = new self();
         }
         return self::$instance;
@@ -121,14 +123,14 @@ final class Http
         curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
         //带证书的post请求
-        if(isset($options['cert']) && !empty($options['cert'])){
+        if (isset($options['cert']) && !empty($options['cert'])) {
             //证书类型
-            curl_setopt($curl,CURLOPT_SSLCERTTYPE,'PEM');
+            curl_setopt($curl, CURLOPT_SSLCERTTYPE, 'PEM');
             //证书配置说明https://pay.weixin.qq.com/wiki/doc/api/tools/mch_pay.php?chapter=4_3
             //从apiclient_cert.p12中导出证书部分的文件，为pem格式，请妥善保管不要泄漏和被他人复制
-            curl_setopt($curl,CURLOPT_SSLCERT, $options['cert']['apiclient_cert']); //证书pem格式
-            curl_setopt($curl,CURLOPT_SSLKEYTYPE,'PEM');
-            curl_setopt($curl,CURLOPT_SSLKEY, $options['cert']['apiclient_key']); //证书密钥pem格式
+            curl_setopt($curl, CURLOPT_SSLCERT, $options['cert']['apiclient_cert']); //证书pem格式
+            curl_setopt($curl, CURLOPT_SSLKEYTYPE, 'PEM');
+            curl_setopt($curl, CURLOPT_SSLKEY, $options['cert']['apiclient_key']); //证书密钥pem格式
         }
         $content = curl_exec($curl);
         curl_close($curl);
@@ -143,17 +145,22 @@ final class Http
      */
     private static function buildQueryData($data, $build = true)
     {
-        if (!is_array($data)) return $data;
-        foreach ($data as $key => $value) if (is_object($value) && $value instanceof \CURLFile) {
-            $build = false;
-        } elseif (is_string($value) && class_exists('CURLFile', false) && stripos($value, '@') === 0) {
-            if (($filename = realpath(trim($value, '@'))) && file_exists($filename)) {
-                list($build, $data[$key]) = [false, new \CURLFile($filename)];
+        if (!is_array($data)) {
+            return $data;
+        }
+
+        foreach ($data as $key => $value) {
+            if (is_object($value) && $value instanceof \CURLFile) {
+                $build = false;
+            } elseif (is_string($value) && class_exists('CURLFile', false) && stripos($value, '@') === 0) {
+                if (($filename = realpath(trim($value, '@'))) && file_exists($filename)) {
+                    list($build, $data[$key]) = [false, new \CURLFile($filename)];
+                }
             }
         }
+
         return $build ? http_build_query($data) : $data;
     }
-
 
     /**
      * 获取浏览器代理信息
@@ -161,7 +168,10 @@ final class Http
      */
     private static function getUserAgent()
     {
-        if (!empty($_SERVER['HTTP_USER_AGENT'])) return $_SERVER['HTTP_USER_AGENT'];
+        if (!empty($_SERVER['HTTP_USER_AGENT'])) {
+            return $_SERVER['HTTP_USER_AGENT'];
+        }
+
         $userAgents = [
             "Mozilla/5.0 (Windows NT 6.1; rv:2.0.1) Gecko/20100101 Firefox/4.0.1",
             "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/536.11 (KHTML, like Gecko) Chrome/20.0.1132.57 Safari/536.11",

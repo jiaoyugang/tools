@@ -6,7 +6,8 @@
  * Time: 18:15
  */
 require_once dirname(__DIR__).'/vendor/autoload.php';
-use tools\Array_xml;
+use tools\helper\Array_xml;
+
 
 
 //数组转为xml
