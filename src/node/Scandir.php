@@ -11,13 +11,13 @@ final class Scandir{
      * 忽略控制名的前缀
      * @var array
      */
-    private static $ignoreController = [];
+    private  $ignoreController = [];
 
     /**
      * 忽略控制的方法名
      * @var array
      */
-    private static $ignoreAction = [
+    private  $ignoreAction = [
         '_', '__construct', 'registermiddleware', '__debuginfo', 'initialize', 'success','login','register', 'error', 'fetch',
         'servicereport','userinfo','notify','mindoc'
     ];
@@ -25,14 +25,15 @@ final class Scandir{
     /**
      * 私有静态属性用以保存对象
      */
-    static private $instance; 
+    private static $instance; 
 
     /**
      * 私有属性的构造方法 防止被 new
      */
-    private function __construct ($config)
+    private function __construct ($ignoreController,$ignoreAction)
     {
-        $this ->config = $config;
+        $this->ignoreController = $ignoreController;
+        $this->ignoreAction = $ignoreAction;
     }
   
     /**
@@ -43,11 +44,11 @@ final class Scandir{
     /**
      * 静态方法 用以实例化调用
      */
-    static public function instance($config)
+    static public function instance($ignoreController,$ignoreAction)
     {
         if (!self::$instance instanceof self) 
         {
-             self::$instance = new self($config);
+             self::$instance = new self($ignoreController,$ignoreAction);
         }
         return self::$instance;
     }

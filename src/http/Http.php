@@ -186,4 +186,8 @@ final class Http
         return $userAgents[array_rand($userAgents, 1)];
     }
 
+    public function get_params(){
+        
+    }
+
 }
