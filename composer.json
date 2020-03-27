@@ -8,7 +8,8 @@
     "php",
     "curl",
     "red",
-    "crypt"
+    "crypt",
+    "amqp"
   ],
   "authors": [
     {
@@ -21,7 +22,8 @@
     "php": ">=5.4",
     "ext-gd": "*",
     "ext-json": "*",
-    "ext-curl": "*"
+    "ext-curl": "*",
+    "php-amqplib/php-amqplib":"2.11.1"
   },
   "autoload": {
       "psr-4": {
