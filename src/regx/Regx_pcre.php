@@ -9,7 +9,9 @@ class Regx_pcre {
      * 验证手机号
      */
     public function reg_mobile(){
+        if(preg_match('','')){
 
+        }
     }
      
 
@@ -32,7 +34,7 @@ class Regx_pcre {
      * 验证邮箱
      */
     public function reg_mail(){
-
+      
     }
 
 }

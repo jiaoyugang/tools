@@ -22,8 +22,7 @@
     "php": ">=5.4",
     "ext-gd": "*",
     "ext-json": "*",
-    "ext-curl": "*",
-    "php-amqplib/php-amqplib":"2.11.1"
+    "ext-curl": "*"
   },
   "autoload": {
       "psr-4": {
