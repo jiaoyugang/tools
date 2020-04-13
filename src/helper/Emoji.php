@@ -40,7 +40,7 @@ final class Emoji
      * @param string $content
      * @return string
      */
-    public static function encode($content)
+    public function encode($content)
     {
         return json_decode(preg_replace_callback("/(\\\u[ed][0-9a-f]{3})/i", function ($maps) {
             return addslashes($maps[0]);
@@ -52,7 +52,7 @@ final class Emoji
      * @param string $content
      * @return string
      */
-    public static function decode($content)
+    public function decode($content)
     {
         return json_decode(preg_replace_callback('/\\\\\\\\/i', function () {
             return '\\';
@@ -64,7 +64,7 @@ final class Emoji
      * @param string $content
      * @return string
      */
-    public static function clear($content)
+    public function clear($content)
     {
         return preg_replace_callback('/./u', function (array $match) {
             return strlen($match[0]) >= 4 ? '' : $match[0];
