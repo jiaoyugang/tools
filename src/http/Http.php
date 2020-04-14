@@ -40,7 +40,7 @@ final class Http
      * @param array $options CURL参数
      * @return boolean|string
      */
-    public static function get($url, $query = [], $options = [])
+    public function get($url, $query = [], $options = [])
     {
         $options['query'] = $query;
         return self::request('get', $url, $options);
@@ -64,7 +64,7 @@ final class Http
      * $http = Http::getInstance();
      * var_dump($http->post('http://xxxx.me/face',$data,$options));
      */
-    public static function post($url, $data = [], $options = [])
+    public function post($url, $data = [], $options = [])
     {
         $options['data'] = $data;
         return self::request('post', $url, $options);

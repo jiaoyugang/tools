@@ -5,6 +5,7 @@
 
 require_once dirname(__DIR__).'/vendor/autoload.php';
 
+use tools\helper\Emoji;
 use tools\http\Http;
 use tools\helper\Image_Base64;
 //-----------------------------------------------------curl模拟http请求测试--------------------
@@ -48,4 +49,10 @@ var_dump(Http::post('http://xxxxx/xxxx',$data,$options));*/
 // $base64 = Image_Base64::ImageToBase64('http://three-api.oss-cn-beijing.aliyuncs.com/skin_test/2019-08-17/15659756543255.png');
 
 // Image_Base64::Base64ToImage('./test.png',base64_decode($base64,true));
+
+
+//------------------------------icon转换
+
+$icon = Emoji::getInstance()->encode('');
+Http::getInstance()->get('');
 
