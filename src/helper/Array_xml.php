@@ -40,7 +40,7 @@ final class Array_xml
      * @param $data
      * @return string
      */
-    public static function arrayToXml($data)
+    public function arrayToXml($data)
     {
         if (!empty($data) && is_array($data)) {
             $xml = "<xml>";
@@ -63,7 +63,7 @@ final class Array_xml
      * @param $xml
      * @return mixed
      */
-    public static function xmlToArray($xml)
+    public function xmlToArray($xml)
     {
         #禁止引用外部xml实体
         libxml_disable_entity_loader(true);
