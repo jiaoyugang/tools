@@ -33,6 +33,34 @@ final class Http
         }
         return self::$instance;
     }
+
+    /**
+     * 获取用户真实IP
+     *
+     * @return bool
+     */
+    public function getRealIp()
+    {
+        $ip = false;
+        if (!empty($_SERVER["HTTP_CLIENT_IP"])) {
+            $ip = $_SERVER["HTTP_CLIENT_IP"];
+        }
+        if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+            $ips = explode(", ", $_SERVER['HTTP_X_FORWARDED_FOR']);
+            if ($ip) {
+                array_unshift($ips, $ip);
+                $ip = FALSE;
+            }
+            for ($i = 0; $i < count($ips); $i++) {
+                if (!mb_eregi("^(10│172.16│192.168).", $ips[$i])) {
+                    $ip = $ips[$i];
+                    break;
+                }
+            }
+        }
+        return ($ip ? $ip : $_SERVER['REMOTE_ADDR']);
+    }
+
     /**
      * 以get模拟网络请求
      * @param string $url HTTP请求URL地址
@@ -185,9 +213,4 @@ final class Http
         ];
         return $userAgents[array_rand($userAgents, 1)];
     }
-
-    public function get_params(){
-        
-    }
-
 }
